@@ -1,8 +1,8 @@
 Feature: As Amazon user I want to validate if total amount
   is greater or less than ten thousand ten thousand
 
-  Scenario: Validate if total amount is bigger than ten thousand
-    Given I login to Amazon
+  Background:
+    Given I navigate to Amazon
     When I search for "refrigerator"
     And I select the first Samsung product
     And I add the item to the cart
@@ -11,4 +11,10 @@ Feature: As Amazon user I want to validate if total amount
     And I select the first Mabe product
     And I add the item to the cart
     And I click to "don't add protection"
-    Then I verify total amount is greater than "10000"
+
+  Scenario: Validate if total amount is bigger than ten thousand
+    Then I verify total amount is greater than 10000
+
+
+  Scenario: Validate if total amount is less than ten thousand
+    Then I verify total amount is less than 10000
